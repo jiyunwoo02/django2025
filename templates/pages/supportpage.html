@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-4">고객 지원 센터</h1>
+
+    <!-- FAQ 섹션 -->
+    <section class="mb-5">
+        <h3>자주 묻는 질문 (FAQ)</h3>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                        Q. 배송은 얼마나 걸리나요?
+                    </button>
+                </h2>
+                <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        A. 배송은 보통 3~5일 소요됩니다. 상황에 따라 변동이 있을 수 있습니다. 😊
+                    </div>
+                </div>
+            </div>
+            <!-- 추가 FAQ 항목 -->
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- 문의하기 섹션 -->
+    <section class="mb-5">
+        <h3>문의하기</h3>
+        <form method="post" action="{% url 'submit_inquiry' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">이름</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">이메일</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">문의 내용</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">문의하기</button>
+        </form>
+    </section>
+</div>
+{% endblock %}
