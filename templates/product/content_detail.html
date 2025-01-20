@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{ content_list.title }}</h2>
-<div>
-    {{ content_list.content }}
+<div class="container py-5">
+    <h1 class="text-center mb-4">상품 상세 페이지</h1>
+
+    <h2>{{ content_list.title }}</h2>
+    <div>
+        {{ content_list.content }}
+    </div>
+
 </div>
 {% endblock %}
