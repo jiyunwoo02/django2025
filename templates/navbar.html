@@ -1,7 +1,12 @@
+<!-- {% load static %} 는 Django에서 static 폴더 안에 있는 정적 파일(CSS, JS, 이미지 등)을 불러오는 역할-->
+{% load static %}
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
-        <a class="navbar-brand" href="/">Discover Kwangwoon Group</a>
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <img src="{% static 'img.jpg' %}" alt="Logo" height="40" class="me-2">
+            Kwangwoon Group
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
