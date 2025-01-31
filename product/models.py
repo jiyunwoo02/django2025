@@ -5,6 +5,7 @@ class MainContent(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     pub_date = models.DateTimeField('date published')
+    image_url = models.URLField(blank=True, null=True)  # 이미지 URL 필드 추가
 
     def __str__(self):
         return self.title

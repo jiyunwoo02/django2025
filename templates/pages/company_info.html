@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+
+<img src="{% static 'banner2.png' %}" class="img-fluid w-100 h-auto"
+         alt="Banner Image" style="max-height: 500px; object-fit: cover;">
+
 <header class="text-center py-5 bg-light">
-    <h1>회사 소개</h1>
     <h1><b>"Discover Kwangwoon Group"</b></h1>
     <p class="lead">미래를 함께하는 글로벌 기업</p>
 </header>

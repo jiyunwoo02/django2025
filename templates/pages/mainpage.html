@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+
+<img src="{% static 'banner.jpg' %}" class="img-fluid w-100 h-auto"
+         alt="Banner Image" style="max-height: 500px; object-fit: cover;">
+
 <div class="container py-5">
 
     <section class="text-center my-5">
@@ -9,12 +14,19 @@
         <a href="/support" class="btn btn-outline-secondary btn-lg">문의하기</a>
     </section>
 
+    <hr>
+
     <!-- 회사 소개 -->
     <section class="text-center my-5">
         <h2>우리는 누구인가요?</h2>
+        <div class="text-center">
+            <img src="{% static 'img.jpg' %}" class="img-fluid" style="max-height: 200px;">
+        </div>
         <p>최고의 기술력과 창의적인 솔루션으로 비즈니스를 지원합니다.</p>
         <a href="/company" class="btn btn-outline-primary">회사 소개 보기</a>
     </section>
+
+    <hr>
 
     <!-- 주요 제품/서비스 -->
     <section class="my-5">
@@ -38,6 +50,8 @@
         </div>
     </section>
 
+    <hr>
+
     <!-- 고객 후기 -->
     <section class="bg-light py-5">
         <h2 class="text-center">고객 후기</h2>
@@ -45,7 +59,7 @@
             <div class="col-md-6">
                 <blockquote>
                     <p>"이 서비스를 사용한 이후 매출이 30% 증가했어요!"</p>
-                    <cite>- 홍길동, ABC 회사</cite>
+                    <cite>- 홍길동, ABC 스타트업</cite>
                 </blockquote>
             </div>
             <div class="col-md-6">
@@ -57,9 +71,11 @@
         </div>
     </section>
 
+    <hr>
+
     <!-- 가입 유도 -->
     <section class="text-center my-5">
-        <h2>지금 시작하세요!</h2>
+        <h2><b>지금 시작하세요!</b></h2>
         <p>성공적인 비즈니스를 위한 최고의 선택</p>
         <a href="/accounts/signup" class="btn btn-primary btn-lg">무료로 시작하기</a>
     </section>

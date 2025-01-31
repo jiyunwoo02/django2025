@@ -3,19 +3,34 @@
 
 <div class="container py-5">
     <h1 class="text-center mb-4">상품 상세 페이지</h1>
-    <h2>{{ content_list.title }}</h2>
-    <div>
-        {{ content_list.content }}
+
+    <div class="card shadow-lg p-4">
+        <!-- 상품 이미지 -->
+        <div class="text-center">
+            <img class="img-fluid rounded mb-4"
+                 src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg"
+                 alt="상품 이미지"
+                 style="max-width: 100%; height: auto;">
+        </div>
+
+        <!-- 상품 정보 -->
+        <div class="card-body text-center">
+            <h2 class="fw-bold">{{ content_list.title }}</h2>
+            <p class="text-muted">{{ content_list.content }}</p>
+        </div>
     </div>
 </div>
+
+
 
 <section class="mb-5">
     <div class="card bg-light">
         <div class="card-body">
-            <form method="post" class="mb-4" action="{% url 'comment_create' content_list.id %}">{% csrf_token %}
+            <form method="post" class="mb-4" action="{% url 'comment_create' content_list.id %}">
+                {% csrf_token %}
                 <textarea id="content" name="content" class="form-control" rows="3"
-placeholder="내용을 입력해주세요."></textarea>
-                <button type="submit" class="btn btn-primary">submit</button>
+                          placeholder="내용을 입력해주세요."></textarea>
+                <button type="submit" class="btn btn-primary">댓글 달기</button>
             </form>
             {% for comment in content_list.comment_set.all %}
             <div class="d-flex">
