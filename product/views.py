@@ -79,3 +79,13 @@ def comment_delete(request, comment_id):
     else:
         comment.delete()
     return redirect('detail', content_id=comment.content_list.id)
+
+# 상품 검색 기능
+def product_list(request):
+    query = request.GET.get('q', '')  # 검색어 가져오기 (기본값 '')
+    if query:
+        content_list = MainContent.objects.filter(title__icontains=query)  # 제목 검색
+    else:
+        content_list = MainContent.objects.all()  # 검색어 없으면 전체 목록
+
+    return render(request, 'product/content_list.html', {'content_list': content_list, 'query': query})
