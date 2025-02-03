@@ -7,7 +7,7 @@
     <form method="GET" action="{% url 'product_list' %}" class="d-flex mb-4">
         <input type="text" name="q" class="form-control me-2"
                placeholder="상품명을 검색하세요..." value="{{ query }}">
-        <button type="submit" class="btn btn-primary">검색</button>
+        <button type="submit" class="btn btn-outline-primary">🔍</button>
     </form>
 
     <!-- Page Content-->
@@ -17,7 +17,11 @@
         {% for content in content_list %}
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
             <div class="card col-lg-7">
-                <img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." />
+                 <!-- 상품별 이미지 표시 -->
+                <!-- admin 페이지에서 링크 추가 -->
+                <img class="img-fluid rounded mb-4 mb-lg-0"
+                     src="{{ content.image_url|default:'https://dummyimage.com/900x400/dee2e6/6c757d.jpg' }}"
+                     alt="{{ content.title }}" />
             </div>
             <div class="col-lg-5">
                 <h1 class="font-weight-light">{{ content.title }}</h1>

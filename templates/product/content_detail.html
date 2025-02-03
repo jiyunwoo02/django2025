@@ -7,10 +7,10 @@
     <div class="card shadow-lg p-4">
         <!-- 상품 이미지 -->
         <div class="text-center">
-            <img class="img-fluid rounded mb-4"
-                 src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg"
-                 alt="상품 이미지"
-                 style="max-width: 100%; height: auto;">
+            <img class="img-fluid rounded"
+                 src="{{ content_list.image_url|default:'https://dummyimage.com/900x400/dee2e6/6c757d.jpg' }}"
+                 alt="{{ content_list.title }}"
+                 style="max-width: 600px;">
         </div>
 
         <!-- 상품 정보 -->
@@ -30,6 +30,7 @@
                 {% csrf_token %}
                 <textarea id="content" name="content" class="form-control" rows="3"
                           placeholder="내용을 입력해주세요."></textarea>
+                <br>
                 <button type="submit" class="btn btn-primary">댓글 달기</button>
             </form>
             {% for comment in content_list.comment_set.all %}
